@@ -9,12 +9,15 @@ public class User {
     public long uid;
     public String screenName;
     public String profileImageURL;
+    public String userName;
+    public String createdAt;
 
     public static User from(JSONObject jsonObject) throws JSONException {
         User user = new User();
         user.name = jsonObject.getString("name");
         user.uid = jsonObject.getLong("id");
         user.screenName = jsonObject.getString("screen_name");
+        user.userName = jsonObject.getString("name");
         user.profileImageURL = jsonObject.getString("profile_image_url_https");
         return user;
     }

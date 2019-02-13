@@ -22,6 +22,10 @@ public class TweetsAdapter extends RecyclerView.Adapter<TweetsAdapter.Viewholder
 
 
 
+
+
+
+
     private Context context;
     private List<Tweet> tweets;
     //Pass in context and list of tweets
@@ -48,6 +52,7 @@ public class TweetsAdapter extends RecyclerView.Adapter<TweetsAdapter.Viewholder
     Tweet tweet = tweets.get(position); //get tweets tweet relative to since_id
     holder.tvBody.setText(tweet.body); //grabs tweets body text
     holder.tvScreenName.setText(tweet.user.screenName); //grabs users screen name
+    holder.tvUserName.setText(tweet.user.userName); // grab username
     Glide.with(context).load(tweet.user.profileImageURL).into(holder.ivProfileImage); //loads users profile image into the holder using the Glide library
 
     }
@@ -73,6 +78,7 @@ public class TweetsAdapter extends RecyclerView.Adapter<TweetsAdapter.Viewholder
         public ImageView ivProfileImage;
         public TextView tvScreenName;
         public TextView tvBody;
+        public TextView tvUserName;
 
 
         public Viewholder(View itemView){
@@ -81,6 +87,7 @@ public class TweetsAdapter extends RecyclerView.Adapter<TweetsAdapter.Viewholder
            ivProfileImage = itemView.findViewById(R.id.ivProfileImage);
            tvScreenName = itemView.findViewById(R.id.tvScreenName);
            tvBody = itemView.findViewById(R.id.tvBody);
+           tvUserName = itemView.findViewById(R.id.tvUserName);
         }
 
     }
